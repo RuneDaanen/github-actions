@@ -17,3 +17,20 @@ jobs:
     uses: ./.github/workflows/FE-build.yml
     with:
       target: ${{ matrix.target }}
+
+  deployStaging2:
+    strategy:
+      matrix:
+        target: [dev, stage]
+    uses: ./.github/workflows/FE-build.yml
+    with:
+      target: ${{ matrix.target }}
+
+
+  deployStaging3:
+    strategy:
+      matrix:
+        target: [dev, stage]
+    uses: ./.github/workflows/FE-build.yml
+    with:
+      target: ${{ matrix.target }}
