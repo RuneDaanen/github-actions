@@ -5,7 +5,7 @@ on: [push, pull_request]
 
 jobs:
   deployProduction:
-    if: github.ref_name != 'main'
+    if: github.ref_name == 'main'
     strategy:
       matrix:
         target: [prod]
