@@ -5,7 +5,7 @@ on: [push, pull_request]
 
 jobs:
   deployProduction:
-    if: github.ref_name == 'main'
+    if: github.ref_name != 'main'
     strategy:
       matrix:
         target: [prod]
@@ -14,7 +14,7 @@ jobs:
       target: ${{ matrix.target }}
 
   deployStaging:
-    if: github.ref_name == 'staging'
+    if: github.ref_name != 'staging'
     strategy:
       matrix:
         target: [dev, stage]
