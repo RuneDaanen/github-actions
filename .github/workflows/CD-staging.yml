@@ -5,10 +5,12 @@ on:
     workflows: [GitHub Actions Demo]
     types:
       - completed
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   deployStaging:
-    if: github.ref_name != 'staging'
     strategy:
       matrix:
         target: [dev, stage]
