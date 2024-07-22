@@ -40,3 +40,10 @@ jobs:
           echo "🛠️ The project is being built."
           echo "🍏 The solvari-fontawesome-token is ${{ inputs.solvari-fontawesome-token }}."
           echo "🍏 The solvari-github-token is ${{ inputs.solvari-github-token }}."
+      - name: Cache turbo build setup
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
