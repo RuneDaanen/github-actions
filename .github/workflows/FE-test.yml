@@ -5,8 +5,14 @@ on:
     inputs:
       target:
         type: string
+      solvari-fontawesome-token:
+        type: string
+        required: true
+      solvari-github-token:
+        type: string
+        required: true
 jobs:
-  Explore-GitHub-Actions:
+  FE-Cypress:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -16,8 +22,21 @@ jobs:
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - run: echo "${{ (github.event_name == 'pull_request' && github.base_ref == 'main') && 'production' || 'staging' }}"
+
+  FE-test:
+    runs-on: ubuntu-latest
+    steps:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: echo "🍏 The target is ${{ inputs.target }}."
+
+  FE-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build the project with the target
+        run: |
+          echo "🛠️ The project is being built."
+          echo "🍏 The solvari-fontawesome-token is ${{ inputs.solvari-fontawesome-token }}."
+          echo "🍏 The solvari-github-token is ${{ inputs.solvari-github-token }}."
