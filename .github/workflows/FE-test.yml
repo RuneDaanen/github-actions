@@ -37,7 +37,7 @@ jobs:
     steps:
       - name: Build the project with the target
         run: |
-          echo "🛠️ The project is being built."
+          echo "🛠️ The project is being built. 2"
           echo "🍏 The solvari-fontawesome-token is ${{ inputs.solvari-fontawesome-token }}."
           echo "🍏 The solvari-github-token is ${{ inputs.solvari-github-token }}."
       - name: Cache turbo build setup
