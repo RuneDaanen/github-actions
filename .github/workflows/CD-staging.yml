@@ -5,9 +5,6 @@ on:
     workflows: [GitHub Actions Demo]
     types:
       - completed
-concurrency:
-  group: ci-${{ github.ref }}
-  cancel-in-progress: true
 
 jobs:
   deployStaging:
@@ -25,7 +22,6 @@ jobs:
     uses: ./.github/workflows/FE-build.yml
     with:
       target: ${{ matrix.target }}
-
 
   deployStaging3:
     strategy:
