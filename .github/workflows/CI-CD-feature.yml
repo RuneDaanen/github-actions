@@ -11,7 +11,7 @@ jobs:
   fe-tests:
     strategy:
       matrix:
-        target: [dev, stage]
+        target: [production]
     uses: ./.github/workflows/FE-test.yml
     with:
       target: ${{ matrix.target }}
@@ -27,3 +27,16 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Cache turbo build setup
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          extensions: pgsql, xmlrpc
+          coverage: none
