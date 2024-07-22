@@ -20,6 +20,7 @@ jobs:
 
   be-test:
     needs: fe-tests
+    environment: production
     runs-on: ubuntu-latest
     steps:
       - name: List files in the repository
