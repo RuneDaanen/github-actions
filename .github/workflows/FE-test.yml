@@ -5,6 +5,10 @@ on:
     inputs:
       target:
         type: string
+
+env:
+  test: betst
+
 jobs:
   FE-Cypress:
     runs-on: ubuntu-latest
