@@ -25,17 +25,3 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: echo "🍏 The target is ${{ inputs.target }}."
-
-  FE-build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Build the project with the target
-        run: |
-          echo "🛠️ The project is being built. 2"
-      - name: Cache turbo build setup
-        uses: actions/cache@v4
-        with:
-          path: .turbo
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
