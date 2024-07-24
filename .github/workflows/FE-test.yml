@@ -5,12 +5,6 @@ on:
     inputs:
       target:
         type: string
-      solvari-fontawesome-token:
-        type: string
-        required: true
-      solvari-github-token:
-        type: string
-        required: true
 jobs:
   FE-Cypress:
     runs-on: ubuntu-latest
@@ -38,8 +32,6 @@ jobs:
       - name: Build the project with the target
         run: |
           echo "🛠️ The project is being built. 2"
-          echo "🍏 The solvari-fontawesome-token is ${{ inputs.solvari-fontawesome-token }}."
-          echo "🍏 The solvari-github-token is ${{ inputs.solvari-github-token }}."
       - name: Cache turbo build setup
         uses: actions/cache@v4
         with:

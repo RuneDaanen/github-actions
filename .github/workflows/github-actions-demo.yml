@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         target: [dev, stage]
-    uses: ./.github/workflows/FE-build.yml
+    uses: ./.github/workflows/FE-test.yml
     with:
       target: ${{ matrix.target }}
 
@@ -24,6 +24,6 @@ jobs:
     strategy:
       matrix:
         target: [dev, stage]
-    uses: ./.github/workflows/FE-build.yml
+    uses: ./.github/workflows/FE-test.yml
     with:
       target: ${{ matrix.target }}
